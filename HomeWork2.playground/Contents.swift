@@ -181,13 +181,22 @@ print("\n\n")
 // виводимо інформацію про температуру тільки у Цельсій
 // для кожного міста, що є у масиві weatherInCities
 print("---------- ЕКРАН 2 ----------")
-for index in 1 ..< 10 {
-    let _ = index
-    let weatherInfo = weatherInCities[2]
+
+for city in weatherInCities {
+    let weatherInfo = city
     let city = weatherInfo.0
     let kelvin = weatherInfo.1
-    print("\n\(city):\nt: \(String(format: "%.1f", kelvin)) C")
+    let kelvinMin = weatherInfo.2
+    let kelvinMax = weatherInfo.3
+    
+    let celsius = kelvin - kelvinZero
+    
+    print("\n\(city):")
+    print("t: \(celsius) C")
+    print("min t: \(kelvinMin - kelvinZero) C")
+    print("max t: \(kelvinMax - kelvinZero) C")
 }
+
 print("\n-----------------------------")
 print("\n\n")
 
